@@ -1,0 +1,16 @@
+Base Exception Type: System.Threading.ThreadStateException: ActiveX control '32be5ed2-5c86-480f-a914-0ff8885a1b3f' cannot be instantiated because the current thread is not in a single-threaded apartment.
+   at System.Windows.Forms.AxHost..ctor(String clsid, Int32 flags)
+   at AxRDPCOMAPILib.AxRDPViewer..ctor()
+   at WinViewer.WinViewer.InitializeComponent() in C:\Users\wesle\Downloads\WinPresenterFinal\WinPresenter\WinViewer\WinViewer.Designer.cs:line 45
+   at WinViewer.WinViewer..ctor() in C:\Users\wesle\Downloads\WinPresenterFinal\WinPresenter\WinViewer\WinViewer.cs:line 37
+   at Examples.ExamplesConsole.NetManager.HandleIncomingMessagePacket(PacketHeader header, Connection connection, String incomingString) in C:\Users\wesle\Downloads\WinPresenterFinal\WinPresenter\WinViewer\NetManager.cs:line 204
+   at NetworkCommsDotNet.Tools.PacketTypeHandlerDelegateWrapper`1.Process(PacketHeader packetHeader, Connection connection, Object obj) in c:\Users\Karnifexx\Documents\Visual Studio 2010\Projects\networkcomms.net\NetworkCommsDotNet\Tools\PacketUnwrappers.cs:line 86
+   at NetworkCommsDotNet.NetworkComms.TriggerGlobalPacketHandlers(PacketHeader packetHeader, Connection connection, Object returnObject, Boolean ignoreUnknownPacketTypeOverride) in c:\Users\Karnifexx\Documents\Visual Studio 2010\Projects\networkcomms.net\NetworkCommsDotNet\NetworkComms.cs:line 746
+
+Stack Trace:    at System.Windows.Forms.AxHost..ctor(String clsid, Int32 flags)
+   at AxRDPCOMAPILib.AxRDPViewer..ctor()
+   at WinViewer.WinViewer.InitializeComponent() in C:\Users\wesle\Downloads\WinPresenterFinal\WinPresenter\WinViewer\WinViewer.Designer.cs:line 45
+   at WinViewer.WinViewer..ctor() in C:\Users\wesle\Downloads\WinPresenterFinal\WinPresenter\WinViewer\WinViewer.cs:line 37
+   at Examples.ExamplesConsole.NetManager.HandleIncomingMessagePacket(PacketHeader header, Connection connection, String incomingString) in C:\Users\wesle\Downloads\WinPresenterFinal\WinPresenter\WinViewer\NetManager.cs:line 204
+   at NetworkCommsDotNet.Tools.PacketTypeHandlerDelegateWrapper`1.Process(PacketHeader packetHeader, Connection connection, Object obj) in c:\Users\Karnifexx\Documents\Visual Studio 2010\Projects\networkcomms.net\NetworkCommsDotNet\Tools\PacketUnwrappers.cs:line 86
+   at NetworkCommsDotNet.NetworkComms.TriggerGlobalPacketHandlers(PacketHeader packetHeader, Connection connection, Object returnObject, Boolean ignoreUnknownPacketTypeOverride) in c:\Users\Karnifexx\Documents\Visual Studio 2010\Projects\networkcomms.net\NetworkCommsDotNet\NetworkComms.cs:line 746

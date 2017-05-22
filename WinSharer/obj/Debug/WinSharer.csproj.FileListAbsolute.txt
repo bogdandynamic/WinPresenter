@@ -1,0 +1,11 @@
+C:\Users\wesle\Downloads\WinPresenterFinal\WinPresenter\WinSharer\bin\Debug\WinSharer.exe
+C:\Users\wesle\Downloads\WinPresenterFinal\WinPresenter\WinSharer\bin\Debug\WinSharer.pdb
+C:\Users\wesle\Downloads\WinPresenterFinal\WinPresenter\WinSharer\bin\Debug\Interop.RDPCOMAPILib.dll
+C:\Users\wesle\Downloads\WinPresenterFinal\WinPresenter\WinSharer\obj\Debug\WinSharer.csprojResolveAssemblyReference.cache
+C:\Users\wesle\Downloads\WinPresenterFinal\WinPresenter\WinSharer\obj\Debug\Interop.RDPCOMAPILib.dll
+C:\Users\wesle\Downloads\WinPresenterFinal\WinPresenter\WinSharer\obj\Debug\WinSharer.csproj.ResolveComReference.cache
+C:\Users\wesle\Downloads\WinPresenterFinal\WinPresenter\WinSharer\obj\Debug\WinSharer.WinSharer.resources
+C:\Users\wesle\Downloads\WinPresenterFinal\WinPresenter\WinSharer\obj\Debug\WinSharer.Properties.Resources.resources
+C:\Users\wesle\Downloads\WinPresenterFinal\WinPresenter\WinSharer\obj\Debug\WinSharer.csproj.GenerateResource.Cache
+C:\Users\wesle\Downloads\WinPresenterFinal\WinPresenter\WinSharer\obj\Debug\WinSharer.exe
+C:\Users\wesle\Downloads\WinPresenterFinal\WinPresenter\WinSharer\obj\Debug\WinSharer.pdb
