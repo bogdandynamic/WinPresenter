@@ -59,6 +59,21 @@ namespace WinSharer
             }
             return false;
         }
+
+
+        private bool IsFileEmpty(string file)
+        {
+            if (new FileInfo(file).Length == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
+
         void OnAttendeeDisconnected(object pDisconnectInfo)
         {
             IRDPSRAPIAttendeeDisconnectInfo pDiscInfo = pDisconnectInfo as IRDPSRAPIAttendeeDisconnectInfo;
@@ -108,16 +123,20 @@ namespace WinSharer
 
                 //Thread.Sleep(2500);
 
-                /*while (!File.Exists("listeners.xml"))
+                while (!File.Exists("listeners.xml"))
                 {
                     //LogTextBox.AppendText("Waiting for inv.xml to be written to file." + Environment.NewLine);
-                }*/
+                }
 
                 /*while (IsFileLocked("listeners.xml") == true)
                 {
                     LogTextBox.AppendText(IsFileLocked("listeners.xml") + Environment.NewLine);
                 }*/
 
+                while (IsFileEmpty("listeners.xml") == true)
+                {
+                    //wait
+                }
                
 
                 //IsFileLocked("listeners.xml");
