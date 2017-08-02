@@ -2,7 +2,6 @@
 !*.lib
 .vs/
 *.exe
-*.dll
 *.xml
 *.pdb
 *.txt
