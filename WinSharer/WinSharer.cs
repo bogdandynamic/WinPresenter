@@ -25,8 +25,37 @@ namespace WinSharer
     {
         public WinSharer()
         {
+            /*if (File.Exists("inv.xml")) { File.Delete("inv.xml"); }
+            if (File.Exists("listeners.txt")) { File.Delete("listeners.txt"); }
+            if (File.Exists("peerAddress.txt")) { File.Delete("peerAddress.txt"); }*/
+
+
+            FileDelete("inv.xml");
+            FileDelete("listeners.xml");
+            FileDelete("peerAddress.txt");
+
+
+
+            //File.Delete("inv.txt");
+            //File.Delete("listeners.txt");
+            //File.Delete("peerAddress.txt");
+            /*File.Delete("inv.txt");
+            File.Delete("inv.txt");
+            File.Delete("inv.txt");
+            File.Delete("inv.txt");*/
+
             InitializeComponent();
         }
+
+
+        public void FileDelete(string file)
+        {
+            if (File.Exists(file))
+            {
+                File.Delete(file);
+            }
+        }
+
         //public bool _checkSwitch = true;
         public bool _networkConnection = false;
         public bool _netmanagerstarted = false;

@@ -173,6 +173,30 @@ namespace Examples.ExamplesConsole
         public void HandleIncomingPacket_MONPos(PacketHeader header, Connection connection, string incomingString)
         {
             //NetManager propTest = new NetManager();
+            MessagesClass propTest = new MessagesClass();
+            //WinViewer.WinViewer winViewer = new WinViewer.WinViewer();
+            Console.WriteLine("\n  ... Incoming message from " + connection.ToString() + " saying '" + incomingString + "'.");
+
+            using (StreamWriter swMonPos = new StreamWriter("monPosition.xml", true))
+            {
+                swMonPos.WriteLine(incomingString);
+            }
+
+
+
+            //TextWriter twMonPos = File.CreateText("monPosition.xml");
+
+            //twMonPos.WriteLine(incomingString);
+
+            //propTest.sendMessages("", "ScrnDims");
+
+            //tw.WriteLine(incomingString);
+            //tw.Close();
+        }
+
+        /*public void HandleIncomingPacket_ScrnDims(PacketHeader header, Connection connection, string incomingString)
+        {
+            //NetManager propTest = new NetManager();
             //MessagesClass propTest = new MessagesClass();
             //WinViewer.WinViewer winViewer = new WinViewer.WinViewer();
             Console.WriteLine("\n  ... Incoming message from " + connection.ToString() + " saying '" + incomingString + "'.");
@@ -182,7 +206,7 @@ namespace Examples.ExamplesConsole
                 swMonPos.WriteLine(incomingString);
             }
 
-            
+
 
             //TextWriter twMonPos = File.CreateText("monPosition.xml");
 
@@ -191,9 +215,9 @@ namespace Examples.ExamplesConsole
 
             //tw.WriteLine(incomingString);
             //tw.Close();
-        }
+        }*/
 
-               
+
     }
 
 }

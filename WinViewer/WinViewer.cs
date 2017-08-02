@@ -31,6 +31,26 @@ namespace WinViewer
         //private BackgroundWorker bw = new BackgroundWorker();
         public WinViewer()
         {
+
+            /*if (File.Exists("inv.xml")) { File.Delete("inv.xml"); }
+            if (File.Exists("peerAddress.txt")) { File.Delete("peerAddress.txt"); }
+            if (File.Exists("monCount.xml")) { File.Delete("monCount.xml"); }
+            if (File.Exists("monPosition.xml")) { File.Delete("monPosition.xml"); }
+            if (File.Exists("monSelCheck.xml")) { File.Delete("monSelCheck.xml"); }
+            if (File.Exists("test11.xml")) { File.Delete("test11.xml"); }*/
+
+
+            //FileDelete("inv.xml");
+            FileDelete("peerAddress.txt");
+            FileDelete("monCount.xml");
+            FileDelete("monPosition.xml");
+            FileDelete("monSelCheck.xml");
+            FileDelete("test11.xml");
+
+            //File.Delete("inv.txt");
+            //File.Delete("peerAddress.txt");
+
+
             //Form2 secondForm = new Form2();
             InitializeComponent();
 
@@ -46,6 +66,15 @@ namespace WinViewer
         //public string peerMessage { get; set; }
         //public bool sendMessage { get; set; }
         //private string netPeerAddress;
+
+        public void FileDelete(string file)
+        {
+            if (File.Exists(file))
+            {
+                File.Delete(file);
+            }
+        }
+
 
         public bool _controlAllowed = true;
         public bool _monitorSwitch = false;
@@ -259,10 +288,15 @@ namespace WinViewer
             //int viewerwidth;
             int viewerwidth = Convert.ToInt32(w);
             int viewerheight = Convert.ToInt32(h);
-            pRdpViewer.Location = new Point(Convert.ToInt32(x), Convert.ToInt32(y));
+            pRdpViewer.Location = new Point(-Convert.ToInt32(x), -Convert.ToInt32(y));
             //pRdpViewer.Location = new Point(pRdpViewer.Location.X, Convert.ToInt32(y));
             pRdpViewer.Width = viewerwidth * count;
             pRdpViewer.Height = viewerheight;
+
+
+
+
+
 
             
 

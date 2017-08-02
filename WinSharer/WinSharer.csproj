@@ -52,7 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExampleHelper.cs" />
     <Compile Include="MessagesClass.cs" />
     <Compile Include="NetManager.cs" />
     <Compile Include="WinSharer.cs">

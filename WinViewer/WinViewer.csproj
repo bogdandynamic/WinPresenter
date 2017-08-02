@@ -76,12 +76,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdvancedSend.cs" />
-    <Compile Include="BasicSend.cs" />
-    <Compile Include="ControlLevel.cs" />
-    <Compile Include="DFSTest.cs" />
-    <Compile Include="ExampleHelper.cs" />
-    <Compile Include="IntermediateSend.cs" />
     <Compile Include="MessagesClass.cs" />
     <Compile Include="NetManager.cs" />
     <Compile Include="NLogLogger.cs" />
@@ -91,7 +85,6 @@
     <Compile Include="Password.Designer.cs">
       <DependentUpon>Password.cs</DependentUpon>
     </Compile>
-    <Compile Include="PeerDiscoveryExample.cs" />
     <Compile Include="PickServer.cs">
       <SubType>Form</SubType>
     </Compile>

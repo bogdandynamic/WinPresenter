@@ -101,6 +101,8 @@ namespace Examples.ExamplesConsole
             NetworkComms.AppendGlobalIncomingPacketHandler<string>("DecAdd", HandleIncomingPacket_DecAdd);
             NetworkComms.AppendGlobalIncomingPacketHandler<string>("XMLFetch", HandleIncomingPacket_XMLFetch);
             NetworkComms.AppendGlobalIncomingPacketHandler<string>("MONFetch", HandleIncomingPacket_MONFetch);
+            
+            //NetworkComms.AppendGlobalIncomingPacketHandler<string>("ScrnDims", HandleIncomingPacket_ScrnDims);
 
             //NetworkComms.AppendGlobalIncomingPacketHandler<string>("Message", HandleIncomingMessagePacket);
 
@@ -175,6 +177,30 @@ namespace Examples.ExamplesConsole
             //tw.Close();
 
         }
+
+        /*public void HandleIncomingPacket_ScrnDims(PacketHeader header, Connection connection, string incomingString)
+        {
+            //NetManager propTest = new NetManager();
+            MessagesClass propTest = new MessagesClass();
+            //WinViewer.WinViewer winViewer = new WinViewer.WinViewer();
+            Console.WriteLine("\n  ... Incoming message from " + connection.ToString() + " saying '" + incomingString + "'.");
+
+            string monPos = System.Windows.Forms.Screen.AllScreens.ToString();
+
+            //TextWriter tw = File.CreateText("monPos.txt");
+            //tw.WriteLine(monPos);
+
+            foreach (var screen in System.Windows.Forms.Screen.AllScreens)
+            {
+                //tw2.WriteLine(screen.Bounds.ToString());
+                monPos = screen.Bounds.ToString();
+                propTest.sendMessages(monPos, "MONPos");
+
+            }
+
+            //tw.Close();
+
+        }*/
 
 
     }
