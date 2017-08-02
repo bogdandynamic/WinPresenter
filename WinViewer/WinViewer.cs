@@ -40,7 +40,7 @@ namespace WinViewer
             if (File.Exists("test11.xml")) { File.Delete("test11.xml"); }*/
 
 
-            //FileDelete("inv.xml");
+            FileDelete("inv.xml");
             FileDelete("peerAddress.txt");
             FileDelete("monCount.xml");
             FileDelete("monPosition.xml");
@@ -73,6 +73,40 @@ namespace WinViewer
             {
                 File.Delete(file);
             }
+        }
+
+
+        private bool IsFileEmpty(string file)
+        {
+            if (new FileInfo(file).Length == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public void viewerWidth()
+        {
+            int count;
+            MonitorCounter(out count);
+
+            int viewerwidth = Int32.Parse(File.ReadLines("defaultViewerWidth.xml").First());
+
+            pRdpViewer.Width = viewerwidth * count;
+        }
+
+        public void viewerHeight()
+        {
+            int count;
+            MonitorCounter(out count);
+
+            int viewerheight = Int32.Parse(File.ReadLines("defaultViewerHeight.xml").First());
+
+            pRdpViewer.Height = viewerheight * count;
         }
 
 
@@ -129,49 +163,6 @@ namespace WinViewer
             }
 
         }
-
-        public void viewerWidth()
-        {
-
-
-
-            int count;
-            MonitorCounter(out count);
-
-            int viewerwidth = Int32.Parse(File.ReadLines("defaultViewerWidth.xml").First());
-
-
-
-            pRdpViewer.Width = viewerwidth * count;
-
-
-        }
-
-        public void viewerHeight()
-        {
-
-
-
-            int count;
-            MonitorCounter(out count);
-
-            int viewerheight = Int32.Parse(File.ReadLines("defaultViewerHeight.xml").First());
-
-
-
-            pRdpViewer.Height = viewerheight * count;
-
-
-        }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -385,102 +376,6 @@ namespace WinViewer
 
             }
 
-            //Console.WriteLine(peerAddress + Environment.NewLine);
-
-            //TextWriter tw = File.CreateText("peerAddress.txt");
-            //tw.WriteLine(peerAddress);
-            //tw.Close();
-
-
-
-            //tw.WriteLine(peerAddress);
-
-            //tw.Close();
-
-            //netPeerAddress = peerAddress;
-
-
-            // -- LogTextBox.AppendText("Address: " + peerAddress + Environment.NewLine);
-
-            //SSLExample serverConnect = new SSLExample();
-
-            // -- LogTextBox.AppendText("Attempting to establish a connection." + Environment.NewLine);
-
-            //peerMessage("This is a test", peerAddress);
-
-            //var netManager = new SSLExample();
-            //var netManager = new NetManager();
-            //netManager.peerMessages();
-            //Console.WriteLine(propTest.peerAddress + Environment.NewLine);
-            //Console.WriteLine(propTest.peerMessage + Environment.NewLine);
-            //Console.WriteLine(propTest.sendMessage + Environment.NewLine);
-            //Console.WriteLine(propTest.exitCode + Environment.NewLine);
-
-
-            // Request host's XML connection file
-            //int exitCode = 0;
-            //string peerMessage = "decodeAddress";
-            //bool sendMessage = true;
-
-            //Console.WriteLine("New properties" + Environment.NewLine);
-
-            //Console.WriteLine(peerAddress + Environment.NewLine);
-            //Console.WriteLine(peerMessage + Environment.NewLine);
-            //Console.WriteLine(sendMessage + Environment.NewLine);
-            //Console.WriteLine(exitCode + Environment.NewLine);
-
-            //NetManager propTest = new NetManager(peerMessage, peerAddress, sendMessage, exitCode);
-
-            // -- NetManager propTest = new NetManager();
-
-            // -- Thread netManager = new Thread(new ThreadStart(propTest.RunExample));
-
-            // -- netManager.Start();
-
-
-            //LogTextBox.AppendText("Network thread started. Sleeping for 5 seconds while data is bing received" + Environment.NewLine);
-            // -- LogTextBox.AppendText("Network thread started." + Environment.NewLine);
-
-            //Thread.Sleep(5000);
-
-
-            //Thread.Sleep(2500);
-
-
-
-            //monitor = File.ReadLines("inv.xml").First();
-
-
-            // -- LogTextBox.AppendText("Opening password dialog box" + Environment.NewLine);
-
-
-
-            //netManager.
-
-
-
-
-            // -- Password pass = new Password();
-            // -- pass.ShowDialog();
-            // -- string password = pass.textBox1.Text;
-            //LogTextBox.Text += ("This is working" + Environment.NewLine);
-            // -- string ConnectionString = ReadFromFile();
-            // -- if (ConnectionString != null)
-            // -- {
-            // --     try
-            // --     {
-                    //pRdpViewer.OnAttendeeConnected += new _IRDPSessionEvents_OnAttendeeConnectedEventHandler(OnAttendeeConnected);
-                    //pRdpViewer.OnAttendeeDisconnected += new _IRDPSessionEvents_OnAttendeeDisconnectedEventHandler(OnAttendeeDisconnected);
-                    //pRdpViewer.OnAttendeeUpdate += new _IRDPSessionEvents_OnAttendeeUpdateEvent(OnAttendeeUpdate);
-                    //pRdpViewer.Connect(ConnectionString, "Viewer1", "");
-            // --         pRdpViewer.Connect(ConnectionString, Environment.MachineName, password);
-            // --     }
-            // --     catch (Exception ex)
-            // --     {
-                    //LogTextBox.Text += ("Error in Connecting. Error Info: " + ex.ToString() + Environment.NewLine);
-            // --         LogTextBox.AppendText("Error in Connecting. Error Info: " + ex.ToString() + Environment.NewLine);
-            // --     }
-            // -- }
         }
 
 
@@ -492,9 +387,6 @@ namespace WinViewer
             NetManager propTest = new NetManager();
 
             Thread netManager = new Thread(new ThreadStart(propTest.RunExample));
-
-
-            //NetworkComms.AppendGlobalIncomingPacketHandler<string>("CtrlLvl", HandleIncomingCtrlLvlPacket);
 
 
             netManager.Start();
@@ -514,7 +406,6 @@ namespace WinViewer
 
         public void EnterPassword()
         {
-            //LogTextBox.AppendText("Opening password dialog box" + Environment.NewLine);
             string password = "2314";
 
             /*Password pass = new Password();
@@ -541,12 +432,20 @@ namespace WinViewer
 
             StartConnect(password);
 
+
+
         }
 
 
         public void StartConnect(string password)
         {
             string ConnectionString = ReadFromFile();
+
+            while (IsFileEmpty("inv.xml") == true)
+            {
+                //wait
+            }
+
             if (ConnectionString != null)
             {
                 try
@@ -556,11 +455,14 @@ namespace WinViewer
                     //pRdpViewer.OnAttendeeUpdate += new _IRDPSessionEvents_OnAttendeeUpdateEvent(OnAttendeeUpdate);
                     //pRdpViewer.Connect(ConnectionString, "Viewer1", "");
                     pRdpViewer.Connect(ConnectionString, Environment.MachineName, password);
+
                 }
                 catch (Exception ex)
                 {
                     //LogTextBox.Text += ("Error in Connecting. Error Info: " + ex.ToString() + Environment.NewLine);
                     LogTextBox.AppendText("Error in Connecting. Error Info: " + ex.ToString() + Environment.NewLine);
+
+                    LogTextBox.AppendText(ConnectionString + Environment.MachineName + password + Environment.NewLine);
 
                     NetManager propTest = new NetManager();
                     propTest.netShutdown();
@@ -745,87 +647,11 @@ namespace WinViewer
 
         private void monitorSwitch_Click(object sender, EventArgs e)
         {
-
-
-            UpdateMonitorPosition();
-
-            /*int count;
-            MonitorCounter(out count);
-            //count = 5;
-            //int monitor;
-            int monitor1 = monitor + 1;
-            monitor = monitor1;
-
-            string mon = File.ReadLines("test11.xml").Skip(monitor-1).Take(monitor).First();
-            string trimmed = mon.Trim('{', '}');
-
-
-            //string newmon = mon.Substring(2, str.Length - 4);
-            char[] delimiterChars = {','};
-
-            string[] newmon = trimmed.Split(delimiterChars);
-
-            LogTextBox.AppendText(newmon[0] + Environment.NewLine);
-            LogTextBox.AppendText(newmon[1] + Environment.NewLine);
-            LogTextBox.AppendText(newmon[2] + Environment.NewLine);
-            LogTextBox.AppendText(newmon[3] + Environment.NewLine);
-
-            TextWriter tw11 = File.CreateText("bounds.xml");
-            tw11.WriteLine(newmon[0]);
-            tw11.WriteLine(newmon[1]);
-            tw11.WriteLine(newmon[2]);
-            tw11.WriteLine(newmon[3]);
-            tw11.Close();
-
-            //TextWriter tw12 = File.CreateText("bounds.xml");
-            string x = newmon[0].Substring(newmon[0].IndexOf('=') + 1);
-            string y = newmon[1].Substring(newmon[1].IndexOf('=') + 1);
-            string w = newmon[2].Substring(newmon[2].IndexOf('=') + 1);
-            string h = newmon[3].Substring(newmon[3].IndexOf('=') + 1);
-            //tw12.Close();
             
-            if (monitor == count)
-            {
-                //int x = Width / 110;
-                //pRdpViewer.Location = new Point(x, pRdpViewer.Location.Y);
-                //monitor = 0;
-
-                pRdpViewer.Location = new Point(Convert.ToInt32(x), Convert.ToInt32(y));
-
-                //pRdpViewer.Location = new Point(pRdpViewer.Location.X + ((1920 / 3) * (count - 1)) + ((1920 / 3) * (count - 1)), pRdpViewer.Location.Y);
-                monitor = 0;
-                //LogTextBox.Text += monitor + Environment.NewLine;
-
-            }
-            else
-            {
-                pRdpViewer.Location = new Point(pRdpViewer.Location.X - 1920 / 3 - 1920 / 3, pRdpViewer.Location.Y);
-            }
-            */
-            //_monitorSwitch = !_monitorSwitch;
-            //if (_monitorSwitch == true)
-            //{
-            //    pRdpViewer.Location = new Point(pRdpViewer.Location.X - 1920/3 - 1920/3, pRdpViewer.Location.Y);
-            //    
-            //}
-            //else
-            //{
-            //    pRdpViewer.Location = new Point(pRdpViewer.Location.X + 1920/3 + 1920/3, pRdpViewer.Location.Y);
-            //}
-            //int viewerheight = pRdpViewer.Height;
-            //int viewerwidth = pRdpViewer.Width;
-            //pRdpViewer.Width = viewerwidth * 2;
-            //pRdpViewer.SmartSizing = false;
+            UpdateMonitorPosition();
+            
         }
-        //private void Form_KeyDown(object sender, KeyEventArgs e)
-        //{
-        //   if (e.KeyCode == Keys.Escape)
-        //   {
-        //       //this.Close();
-        //       ControlButton.PerformClick();
-        //   }
-        //}
-
+        
 
         public void GetCtrlLvl()
         {
